@@ -1,0 +1,226 @@
+/* EVERFOREST PALETTE 
+   Farben basierend auf dem Everforest Color Scheme
+*/
+:root {
+    /* Backgrounds */
+    --bg-dim: #232a2e;
+    /* Tiefster Hintergrund */
+    --bg-normal: #2d353b;
+    /* Standard Hintergrund */
+    --bg-highlight: #343f44;
+    /* Für Karten oder Hover-Hintergründe */
+
+    /* Text / Foreground */
+    --fg: #d3c6aa;
+    /* Klassisches Everforest Beige */
+    --fg-bright: #fff;
+    /* Reines Weiß für Titel */
+
+    /* Akzentfarben */
+    --green: #a7c080;
+    /* Haupt-Akzentfarbe */
+    --blue: #7fbbb3;
+    /* Sekundär-Akzent */
+    --grey: #859289;
+    /* Dezenter Text */
+
+    /* Sonstiges */
+    --overlay: rgba(35, 42, 46, 0.75);
+    /* Sanfter Filter über dem Bild */
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
+/* GRUNDLAGEN */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dim);
+    color: var(--fg);
+    line-height: 1.6;
+    /* overflow: hidden;  <-- Gelöscht, damit Scrollen möglich ist */
+}
+
+/* HEADER */
+.main-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--fg-bright);
+    text-transform: uppercase;
+}
+
+.top-nav a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: var(--green);
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url('images/background.png');
+    /* Dein hochgeladenes Bild */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay);
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.content {
+    max-width: 850px;
+}
+
+.title {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--fg-bright);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 45px;
+    color: var(--fg);
+    max-width: 550px;
+}
+
+/* BUTTONS / LINKS */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 550px;
+}
+
+.btn {
+    padding: 18px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-filled {
+    background-color: var(--fg-bright);
+    color: #000;
+}
+
+.btn-filled:hover {
+    background-color: var(--green);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 2px solid var(--fg-bright);
+    color: var(--fg-bright);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--green);
+    color: var(--green);
+    transform: translateY(-3px);
+}
+
+/* SETUP BEREICH (Hub) */
+.hub {
+    padding: 100px 10%;
+    background-color: var(--bg-normal);
+    text-align: left;
+}
+
+.hub h2 {
+    color: var(--green);
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hub p {
+    color: var(--fg);
+    font-size: 1.1rem;
+    max-width: 700px;
+    text-align: left;
+    padding: 5px;
+}
+
+.hub img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid var(--bg-highlight);
+    box-shadow: 0 20px 40px var(--shadow);
+    transition: border-color 0.3s ease;
+}
+
+.hub h3 {
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.hub img:hover {
+    border-color: var(--green);
+}
+
+/* MOBILE ANPASSUNG */
+@media (max-width: 768px) {
+    .link-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header {
+        padding: 20px;
+    }
+
+    .hero-overlay {
+        padding: 0 5%;
+    }
+}
